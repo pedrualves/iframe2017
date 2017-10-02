@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <h1>IFRAME</h1>
+    <input type="text" id="inputtext" />
+    <br>
+    <br>
+    <script>
+      function onSubmit() {
+        const object = {
+            "status": {
+                "code": 200,
+                "msg": ''
+            }
+        }
+
+        object.status.msg = document.getElementById('inputtext').value
+        window.parent['ABC'].on('abcEventListener', object)
+      }
+    </script>
+    <button onclick="onSubmit()" type="button">TEST</button>
+</body>
+</html>

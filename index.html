@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <h1>HOST</h1>
+    <h2 id="retornoIframe">return iframe...</h2>
+    <iframe src="./iframe.html" scrolling="no" marginwidth="0" marginheight="0"
+    vspace="0" hspace="0" border="0" frameborder="0" allowtransparency="true"></iframe>
+
+    <script>
+      window['ABC'] = {
+        on: (method, data) => {
+            const event = new CustomEvent(method,{detail: data});
+            document.dispatchEvent(event)
+            document.getElementById('retornoIframe').innerHTML = data.status.msg;
+        }
+      };
+
+      document.addEventListener('abcEventListener', function(e){
+          alert('okay ');
+      });
+    </script>
+  </body>
+</html>
